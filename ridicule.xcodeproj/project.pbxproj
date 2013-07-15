@@ -6,10 +6,29 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		5106CFB61756DCE100EF0D5C /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5106CFB71756E18B00EF0D5C /* draw.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = draw.js; sourceTree = "<group>"; };
+		5106CFB817576DD800EF0D5C /* newStuff.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = newStuff.js; sourceTree = "<group>"; };
+		5106CFB91757766200EF0D5C /* physics.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = physics.js; sourceTree = "<group>"; };
+		5106CFBA1757A98100EF0D5C /* properties.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = properties.js; sourceTree = "<group>"; };
+		5106CFBB1759192800EF0D5C /* keyboard.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = keyboard.js; sourceTree = "<group>"; };
+		5106CFBC175919F900EF0D5C /* GUI.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GUI.js; sourceTree = "<group>"; };
+		51C98492175F9BF0003D56BA /* enemyAI.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = enemyAI.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		5106CFAF1756DCDA00EF0D5C = {
 			isa = PBXGroup;
 			children = (
+				5106CFB61756DCE100EF0D5C /* index.html */,
+				5106CFB817576DD800EF0D5C /* newStuff.js */,
+				51C98492175F9BF0003D56BA /* enemyAI.js */,
+				5106CFB71756E18B00EF0D5C /* draw.js */,
+				5106CFB91757766200EF0D5C /* physics.js */,
+				5106CFBC175919F900EF0D5C /* GUI.js */,
+				5106CFBB1759192800EF0D5C /* keyboard.js */,
+				5106CFBA1757A98100EF0D5C /* properties.js */,
 			);
 			sourceTree = "<group>";
 		};

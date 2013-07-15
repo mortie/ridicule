@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>stuff</title>
+        <script src="properties.js"></script>
+        <script src="newStuff.js"></script>
+        <script src="enemyAI.js"></script>
+        <script src="draw.js"></script>
+        <script src="physics.js"></script>
+        <script src="keyboard.js"></script>
+        <script src="GUI.js"></script>
+        <script>
+            var player = {
+                "position": {"x": null, "y": null},
+                "velocity": {"x": 0, "y": 0, "relative": 0},
+                "point": [],
+                "rotation": 0,
+                "health": 100,
+                "fireTimer": 0
+            };
+            
+            var numberOfEnemies = 0;
+            var enemy = [];
+            var bullet = [];
+            var gameArea;
+            var gameCtx;
+            var gameLoop;
+            var drawLoop;
+            var keyboardMap = [];
+            
+            function random(min, max)
+            {
+                return (Math.random()*max)+min;
+            };
+            
+            function update()
+            {
+                //FPS stuff
+                if (state.FPSTimer >= properties.FPSUpdateSpeed)
+                {
+                    state.FPS = state.FPSDynamic
+                    state.FPSTimer = 0;
+                };
+                state.FPSTimer++
+                
+                state.gameWidth = window.innerWidth;
+                state.gameHeight = window.innerHeight;
+                physics();
+                enemyAI();
+            };
+            
+            function updateGameLoops(str)
+            {
+                if (str == undefined) { str = "" };
+                //clear loops
+                if (str != "start")
+                {
+                    window.clearInterval(gameLoop);
+                    window.clearInterval(drawLoop);
+                };
+                
+                
+                //init loops
+                if (str != "stop")
+                {
+                    gameLoop = window.setInterval(update, 1000/properties.gameSpeed);
+                    drawLoop = window.setInterval(draw, 1000/properties.FPS);
+                };
+            }
+            
+            function init()
+            {  
+                state.gameWidth = window.innerWidth;
+                state.gameHeight = window.innerHeight;
+                
+                gameArea = document.getElementById("gameArea");
+                gameCtx = gameArea.getContext("2d");
+                
+                gameArea.height = state.gameWidth;
+                gameArea.width = state.gameHeight;
+                
+                player.position.x = state.gameWidth/2;
+                player.position.y = state.gameHeight/2;
+                
+                player.point = physics_getTrianglePoints(player.halfHeight, player.halfWidth, player.rotation);
+                
+                gameLoop = window.setInterval(update, 1000/properties.gameSpeed);
+                drawLoop = window.setInterval(draw, 1000/properties.FPS)
+                
+                newEnemy(100, 100);
+            };
+            </script>
+        <style>
+            canvas {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            };
+            </style>
+    </head>
+    <body onload="init()">
+        <canvas id="gameArea"></canvas>
+    </body>
+</html>
